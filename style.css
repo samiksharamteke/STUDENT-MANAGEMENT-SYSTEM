@@ -1,0 +1,187 @@
+/* --- High-Contrast Earth Aesthetic --- */
+:root {
+    /* Your Primary Colors */
+    --ocean-bg: #F0EDE5;              /* Parchment White Background */
+    --ocean-card: #ffffff;
+    --ocean-primary: #004643;         /* Deep Teal Action Color */
+    --ocean-primary-hover: #003331;
+    
+    /* UI Text & Borders */
+    --ocean-text-head: #001e1d;       /* Darkest Teal for Headers */
+    --ocean-text-sub: #444e4e;        /* Muted Teal-Grey for Subtitles */
+    --ocean-border: #abd1c6;          /* Soft Seafoam for Glassy Borders */
+    --ocean-shadow: 0 8px 30px rgba(0, 70, 67, 0.1);
+    
+    /* Functional Status Colors */
+    --success: #004643;               /* Themed Success */
+    --warning: #f9bc60;               /* Soft Amber Accent */
+    --error: #e16162;                 /* Terracotta Red */
+    --edit-bg: #abd1c6;               /* Light Teal Background for Edit */
+    --edit-text: #004643;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--ocean-bg);
+    color: var(--ocean-text-head);
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Layout Cards --- */
+.header-card, .action-bar, .form-container, .table-card {
+    background: var(--ocean-card);
+    border-radius: 12px;
+    box-shadow: var(--ocean-shadow);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--ocean-border);
+}
+
+.header-card h1, .form-container h2, .table-header h2 {
+    font-size: 2.25rem;
+    color: var(--ocean-text-head);
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.subtitle {
+    color: var(--ocean-text-sub);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- Form & Inputs --- */
+.search-input, .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+/* Custom SVG Search Icon in Teal */
+.search-input {
+    padding-left: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23004643' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+
+.search-input:focus, .form-group input:focus {
+    outline: none;
+    border-color: var(--ocean-primary);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(0, 70, 67, 0.1);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--ocean-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--ocean-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-edit {
+    background: var(--edit-bg);
+    color: var(--edit-text);
+    border: 1px solid var(--ocean-border);
+}
+
+.btn-delete {
+    background: #fff1f2;
+    color: var(--error);
+    border: 1px solid #fecdd3;
+}
+
+/* --- Stats Cards --- */
+#statsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid var(--ocean-border);
+    border-left: 6px solid var(--warning); /* High-contrast accent stripe */
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ocean-primary);
+}
+
+/* --- Table Styles --- */
+.table-header {
+    background: #abd1c6; /* Seafoam Sub-header */
+    border-bottom: 2px solid var(--ocean-primary);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 16px 24px;
+    color: var(--ocean-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background: #f1f5f4;
+}
+
+td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.grade-a-plus, .grade-a { color: var(--success); font-weight: bold; }
+.grade-f { color: var(--error); font-weight: bold; }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .header-card h1 { font-size: 1.8rem; }
+    .btn { width: 100%; justify-content: center; }
+}

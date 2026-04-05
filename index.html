@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-card">
+            <h1>Student Management System</h1>
+            <p class="subtitle">Manage student records, track performance, and analyze results</p>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search by name, email, or course..."
+                    class="search-input"
+                >
+            </div>
+            <br>
+            <div class="button-group">
+                <button id="addStudentBtn" class="btn btn-primary">
+                    <span>➕</span> Add Student
+                </button>
+                <button id="highestMarksBtn" class="btn btn-warning">
+                    <span>🏆</span> Highest Marks
+                </button>
+                <button id="averageMarksBtn" class="btn btn-success">
+                    <span>🧮</span> Average Marks
+                </button>
+            </div>
+
+            <!-- Stats Display -->
+            <div id="statsContainer" class="stats-container"></div>
+        </div>
+
+        <!-- Add/Edit Form -->
+        <div id="formContainer" class="form-container" style="display: none;">
+            <h2 id="formTitle">Add New Student</h2>
+            <form id="studentForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentName">Full Name *</label>
+                        <input type="text" id="studentName" placeholder="Enter student name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Email Address *</label>
+                        <input type="email" id="studentEmail" placeholder="student@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentAge">Age *</label>
+                        <input type="number" id="studentAge" placeholder="Enter age" min="1" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentCourse">Course *</label>
+                        <input type="text" id="studentCourse" placeholder="e.g., Computer Science" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentMarks">Marks (%) *</label>
+                        <input type="number" id="studentMarks" placeholder="Enter marks" min="0" max="100" step="0.01" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span>💾</span> <span id="submitBtnText">Save Student</span>
+                        </button>
+                        <button type="button" id="cancelBtn" class="btn btn-secondary">
+                            <span>✖</span> Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-card">
+            <div class="table-header">
+                <h2>All Students (<span id="studentCount">0</span>)</h2>
+            </div>
+            <div id="tableContainer" class="table-container">
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">👥</div>
+                    <p class="empty-title">No students added yet</p>
+                    <p class="empty-subtitle">Click "Add Student" to get started</p>
+                </div>
+                <table id="studentsTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Course</th>
+                            <th>Marks</th>
+                            <th>Grade</th>
+                            <th class="actions-column">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
